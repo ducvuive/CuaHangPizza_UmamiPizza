@@ -186,40 +186,40 @@ create table CTHD
 /* KHOA NGOAI                                                   */
 /*==============================================================*/
 
-alter table _CODE_CTHD add constraint FK_CTHD foreign key (MAHD)
-      references _CODE_HOADON (MAHD) on delete restrict on update restrict;
+alter table CTHD add constraint FK_CTHD foreign key (MAHD)
+      references HOADON (MAHD) on delete restrict on update restrict;
 
-alter table _CODE_CTHD add constraint FK_CTHD2 foreign key (MASP)
-      references _CODE_SANPHAM (MASP) on delete restrict on update restrict;
+alter table CTHD add constraint FK_CTHD2 foreign key (MASP)
+      references SANPHAM (MASP) on delete restrict on update restrict;
 
-alter table _CODE_HOADON add constraint FK_HD_SK foreign key (MASK)
-      references _CODE_SUKIEN (MASK) on delete restrict on update restrict;
+alter table HOADON add constraint FK_HD_SK foreign key (MASK)
+      references SUKIEN (MASK) on delete restrict on update restrict;
 
-alter table _CODE_HOADON add constraint FK_LAP foreign key (MANV)
-      references _CODE_NHANVIEN (MANV) on delete restrict on update restrict;
+alter table HOADON add constraint FK_LAP foreign key (MANV)
+      references NHANVIEN (MANV) on delete restrict on update restrict;
 
-alter table _CODE_HOADON add constraint FK_THUOC foreign key (MAKH)
-      references _CODE_KHACHHANG (MAKH) on delete restrict on update restrict;
+alter table HOADON add constraint FK_THUOC foreign key (MAKH)
+      references KHACHHANG (MAKH) on delete restrict on update restrict;
 
-alter table _CODE_KHACHHANG add constraint FK_CO2 foreign key (TENDANGNHAP)
-      references _CODE_TAIKHOAN (TENDANGNHAP) on delete restrict on update restrict;
+alter table KHACHHANG add constraint FK_CO2 foreign key (TENDANGNHAP)
+      references TAIKHOAN (TENDANGNHAP) on delete restrict on update restrict;
 
-alter table _CODE_NHANVIEN add constraint FK_CO1 foreign key (TENDANGNHAP)
-      references _CODE_TAIKHOAN (TENDANGNHAP) on delete restrict on update restrict;
+alter table NHANVIEN add constraint FK_CO1 foreign key (TENDANGNHAP)
+      references TAIKHOAN (TENDANGNHAP) on delete restrict on update restrict;
 
-alter table _CODE_SANPHAM add constraint FK_THUOC1 foreign key (DANHMUC)
-      references _CODE_DANHMUCSANPHAM (MADM) on delete restrict on update restrict;
+alter table SANPHAM add constraint FK_THUOC1 foreign key (DANHMUC)
+      references DANHMUCSANPHAM (MADM) on delete restrict on update restrict;
 
-alter table _CODE_SANPHAM add constraint FK_THUOC3 foreign key (RAM)
-      references _CODE_BONHORAM (MARAM) on delete restrict on update restrict;
+alter table SANPHAM add constraint FK_THUOC3 foreign key (RAM)
+      references BONHORAM (MARAM) on delete restrict on update restrict;
 
-alter table _CODE_SANPHAM add constraint FK_THUOC4 foreign key (MANHINH)
-      references _CODE_MANHINH (MAMH) on delete restrict on update restrict;
+alter table SANPHAM add constraint FK_THUOC4 foreign key (MANHINH)
+      references MANHINH (MAMH) on delete restrict on update restrict;
 
-alter table _CODE_SANPHAM add constraint FK_THUOC5 foreign key (BOXULY)
-      references _CODE_BOXULY (MABXL) on delete restrict on update restrict;
+alter table SANPHAM add constraint FK_THUOC5 foreign key (BOXULY)
+      references BOXULY (MABXL) on delete restrict on update restrict;
 
-alter table _CODE_SANPHAM add constraint FK_THUOC6 foreign key ()
-      references _CODE_CONGKETNOI (MACKN) on delete restrict on update restrict;
+alter table SANPHAM add constraint FK_THUOC6 foreign key (CONGKETNOI)
+      references CONGKETNOI (MACKN) on delete restrict on update restrict;
 
 commit;
