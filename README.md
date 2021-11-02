@@ -6,7 +6,7 @@ Nhóm gồm những thằng điên =))
 - Tên hàm, phương thức, tên biến: camelCase (VD: layDuLieu, tenKhachHang)
 - Hằng số: underscore (VD: PHAN_TRAM_THUE)
 
- Tên database: LaptopHLTD
+ Tên database: LapTopStrore 
  Pass: admin
 
 
