@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PhatTrienWeb_Laptop.Models;
 
 namespace PhatTrienWeb_Laptop
 {
@@ -23,7 +24,8 @@ namespace PhatTrienWeb_Laptop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddMvc();
+            services.Add(new ServiceDescriptor(typeof(LapTopContext), new LapTopContext(Configuration.GetConnectionString("DefaultConnection"))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
