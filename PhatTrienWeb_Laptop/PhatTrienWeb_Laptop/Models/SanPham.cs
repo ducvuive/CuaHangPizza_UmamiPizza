@@ -11,7 +11,7 @@ namespace DoAn_CuaHangLaptop.Models
         string tenSP;
         int soLuong;
         string mauSac;
-        string cPU;
+        string boXuLy;
         string rAM;
         string oCung;
         string manHinh;
@@ -27,19 +27,19 @@ namespace DoAn_CuaHangLaptop.Models
         string moTa;
         long donGia;
         string hinhAnh;
-        string maDM;
+        string danhMuc;
 
         public SanPham()
         {
         }
 
-        public SanPham(string maSP, string tenSP, int soLuong, string mauSac, string cPU, string rAM, string oCung, string manHinh, string cardMH, string congKN, string dacBiet, string hDH, string thietKe, string kichThuoc_TrongLuong, string webcam, string pin, int raMat, string moTa, long donGia, string hinhAnh, string maDM)
+        public SanPham(string maSP, string tenSP, int soLuong, string mauSac, string boXuLy, string rAM, string oCung, string manHinh, string cardMH, string congKN, string dacBiet, string hDH, string thietKe, string kichThuoc_TrongLuong, string webcam, string pin, int raMat, string moTa, long donGia, string hinhAnh, string danhMuc)
         {
             this.MaSP = maSP;
             this.TenSP = tenSP;
             this.SoLuong = soLuong;
             this.MauSac = mauSac;
-            this.CPU = cPU;
+            this.BoXuLy = boXuLy;
             this.RAM = rAM;
             this.OCung = oCung;
             this.ManHinh = manHinh;
@@ -55,14 +55,14 @@ namespace DoAn_CuaHangLaptop.Models
             this.MoTa = moTa;
             this.DonGia = donGia;
             this.HinhAnh = hinhAnh;
-            this.MaDM = maDM;
+            this.DanhMuc = danhMuc;
         }
 
         public string MaSP { get => maSP; set => maSP = value; }
         public string TenSP { get => tenSP; set => tenSP = value; }
         public int SoLuong { get => soLuong; set => soLuong = value; }
         public string MauSac { get => mauSac; set => mauSac = value; }
-        public string CPU { get => cPU; set => cPU = value; }
+        public string BoXuLy { get => boXuLy; set => boXuLy = value; }
         public string RAM { get => rAM; set => rAM = value; }
         public string OCung { get => oCung; set => oCung = value; }
         public string ManHinh { get => manHinh; set => manHinh = value; }
@@ -78,6 +78,6 @@ namespace DoAn_CuaHangLaptop.Models
         public string MoTa { get => moTa; set => moTa = value; }
         public long DonGia { get => donGia; set => donGia = value; }
         public string HinhAnh { get => hinhAnh; set => hinhAnh = value; }
-        public string MaDM { get => maDM; set => maDM = value; }
+        public string DanhMuc { get => danhMuc; set => danhMuc = value; }
     }
 }

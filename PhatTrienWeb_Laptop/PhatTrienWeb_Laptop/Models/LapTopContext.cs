@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
 using PhatTrienWeb_Laptop.Models;
+using DoAn_CuaHangLaptop.Models;
 
 namespace PhatTrienWeb_Laptop.Models
 {
