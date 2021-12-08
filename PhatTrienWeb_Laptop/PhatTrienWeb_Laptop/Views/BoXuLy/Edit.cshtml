@@ -1,0 +1,54 @@
+﻿@model DoAn_CuaHangLaptop.Models.BoXuLy
+
+@{
+    ViewData["Title"] = "Edit";
+    var boxuly = ViewData["BoXuLy"] as BoXuLy;
+    Layout = "/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="card-body">
+    <h1 style="text-align: center; color: coral;">Cập nhật thông tin</h1>
+    <hr />
+
+    @using (Html.BeginForm("Edit", "BoXuLy", new { style = "border:1px solid red; " }))
+    {
+        <table class="table" , style="text-align:center;">
+            <tr style="display: none;">
+                <td> <b>Mã bộ xử lý</b></td>
+                <td><input type="text" id="maBXL" name="maBXL" value="@boxuly.MaBXL" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Công nghệ CPU</b></td>
+                <td><input type="text" id="congNgheCPU" name="congNgheCPU" value="@boxuly.CongNgheCPU" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Số nhân</b></td>
+                <td><input type="text" id="soNhan" name="soNhan" value="@boxuly.SoNhan" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Số luồng</b></td>
+                <td><input type="text" id="soLuong" name="soLuong" value="@boxuly.SoLuong" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Tốc độ CPU</b> </td>
+                <td>  <input type="text" id="tocDoCPU" name="tocDoCPU" value="@boxuly.TocDoCPU" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Tốc độ tối đa</b></td>
+                <td>  <input type="text" id="tocDoToiDa" name="tocDoToiDa" value="@boxuly.TocDoToiDa" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Bộ nhớ đệm</b></td>
+                <td>  <input type="text" id="boNhoDem" name="boNhoDem" value="@boxuly.BoNhoDem" style="width: 70%;"></td>
+            </tr>
+        </table>
+        <br />
+        <div style="text-align: center"> <input type="submit" value="Cập nhật" /></div>
+    }
+
+
+    <div>
+        <a asp-action="Index">Trở về</a>
+    </div>
+
+</div>

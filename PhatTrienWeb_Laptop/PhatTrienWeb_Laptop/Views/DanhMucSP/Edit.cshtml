@@ -1,0 +1,36 @@
+﻿@model DoAn_CuaHangLaptop.Models.DanhMuc
+
+@{
+    ViewData["Title"] = "Edit";
+    var danhmucsp = ViewData["DanhMuc"] as DanhMuc;
+    Layout = "/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="card-body">
+    <h1 style="text-align: center; color: coral;">Cập nhật thông tin</h1>
+    <hr />
+
+    @using (Html.BeginForm("Edit", "DanhMucSP", new { style = "border:1px solid red; " }))
+    {
+        <table class="table" , style="text-align:center;">
+            <tr style="display: none;">
+                <td> <b>Mã danh mục</b></td>
+                <td><input type="text" id="maDM" name="maDM" value="@danhmucsp.MaDM" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Tên danh mục</b></td>
+                <td><input type="text" id="tenDM" name="tenDM" value="@danhmucsp.TenDM" style="width: 70%;"></td>
+            </tr>
+
+        </table>
+        <br />
+        <div style="text-align: center"> <input type="submit" value="Cập nhật" /></div>
+    }
+
+
+    <div>
+        <a asp-action="Index">Trở về</a>
+    </div>
+
+
+</div>

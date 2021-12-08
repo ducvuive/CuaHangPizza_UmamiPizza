@@ -1,0 +1,53 @@
+﻿@model DoAn_CuaHangLaptop.Models.CongKetNoi
+
+@{
+    ViewData["Title"] = "Edit";
+    var congketnoi = ViewData["CongKetNoi"] as CongKetNoi;
+    Layout = "/Views/Shared/_Layout2.cshtml";
+}
+
+<h1 style="text-align: center; color: coral;">Cập nhật thông tin</h1>
+<hr />
+
+@using (Html.BeginForm("Edit", "CongKetNoi", new { style = "border:1px solid red; " }))
+{
+    <table class="table" , style="text-align:center;">
+    <tr style="display: none;">
+        <td> <b>Mã cổng kết nối</b></td>
+        <td><input type="text" id="maCKN" name="maCKN" value="@congketnoi.MaCKN" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Cổng giao tiếp</b></td>
+        <td><input type="text" id="congGiaoTiep" name="congGiaoTiep" value="@congketnoi.CongGiaoTiep" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Kết nối không dây</b></td>
+        <td><input type="text" id="ketNoiKhongDay" name="ketNoiKhongDay" value="@congketnoi.KetNoiKhongDay" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Khe đọc thẻ nhớ</b></td>
+        <td><input type="text" id="kheDocTheNho" name="kheDocTheNho" value="@congketnoi.KheDocTheNho" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Webcam</b> </td>
+        <td>  <input type="text" id="webCam" name="webCam" value="@congketnoi.WebCam" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Tính năng khác</b></td>
+        <td>  <input type="text" id="tinhNangKhac" name="tinhNangKhac" value="@congketnoi.TinhNangKhac" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Đèn bàn phím</b></td>
+        <td>  <input type="text" id="denBanPhim" name="denBanPhim" value="@congketnoi.DenBanPhim" style="width: 70%;"></td>
+    </tr>
+</table>
+    <br />
+    <div style="text-align: center"> <input type="submit" value="Cập nhật" /></div>
+}
+
+
+<div>
+    <a asp-action="Index">Trở về</a>
+</div>
+
+

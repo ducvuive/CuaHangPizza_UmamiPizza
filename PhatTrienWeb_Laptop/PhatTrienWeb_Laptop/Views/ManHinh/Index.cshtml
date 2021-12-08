@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DoAn_CuaHangLaptop.Models.ManHinh>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KichThuoc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoPhanGiai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TanSoQuet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CongNgheMH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CamUng)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KichThuoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoPhanGiai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanSoQuet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CongNgheMH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CamUng)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MaMH }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaMH }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaMH }, new { onclick = "return confirm('Bạn chắc chắn muốn xóa ?');" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

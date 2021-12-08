@@ -1,0 +1,36 @@
+﻿@model DoAn_CuaHangLaptop.Models.DanhMuc
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "/Views/Shared/_Layout2.cshtml";
+}
+
+<h1>Create</h1>
+
+@using (Html.BeginForm("Create", "DanhMucSP", new { style = "border:1px solid red; " }))
+{
+    <table class="table" , style="text-align:center;">
+        <tr>
+            <td> <b>Cổng giao tiếp</b></td>
+            <td> @Html.TextBoxFor(dmsp => dmsp.TenDM, new { @class = "style" })</td>
+        </tr>
+       
+    </table>
+    <br />
+    <div style="text-align: center">  <input type="submit" value="Thêm danh mục sản phẩm" /></div>
+}
+<div style="font-size: 12px;">
+    <a asp-action="Index">Trở về</a>
+</div>
+
+
+<style>
+    .style {
+        text-align: center;
+        width: 70%;
+    }
+
+    .b {
+        width: 300px;
+    }
+</style>
