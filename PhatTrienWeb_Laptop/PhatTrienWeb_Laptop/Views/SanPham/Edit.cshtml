@@ -1,0 +1,113 @@
+﻿@model DoAn_CuaHangLaptop.Models.SanPham
+
+@{
+    ViewData["Title"] = "Edit";
+    var sanpham = ViewData["SanPham"] as SanPham;
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<div class="card-body">
+
+    <h1 style="text-align: center; color: coral;">Cập nhật thông tin</h1>
+    <hr />
+
+    @using (Html.BeginForm("Edit", "SanPham", new { style = "border:1px solid red; " }))
+    {
+        <table class="table" , style="text-align:center;">
+            <tr style="display: none;">
+                <td> <b>Mã sản phẩm</b></td>
+                <td><input type="text" id="maSP" name="maSP" value="@sanpham.MaSP" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Màn hình</b></td>
+                <td><input type="text" id="manHinh" name="manHinh" value="@sanpham.ManHinh" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Bộ xử lý</b></td>
+                <td><input type="text" id="boXuLy" name="boXuLy" value="@sanpham.BoXuLy" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>RAM</b> </td>
+                <td>  <input type="text" id="rAM" name="rAM" value="@sanpham.RAM" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Cổng kết nối</b></td>
+                <td>  <input type="text" id="congKN" name="congKN" value="@sanpham.CongKN" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Danh mục</b></td>
+                <td><input type="text" id="danhMuc" name="danhMuc" value="@sanpham.DanhMuc" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Tên sản phẩm</b></td>
+                <td><input type="text" id="tenSP" name="tenSP" value="@sanpham.TenSP" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Số lượng</b> </td>
+                <td>  <input type="text" id="soLuong" name="soLuong" value="@sanpham.SoLuong" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Màu sắc</b></td>
+                <td>  <input type="text" id="mauSac" name="mauSac" value="@sanpham.MauSac" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Ổ cứng</b></td>
+                <td><input type="text" id="oCung" name="oCung" value="@sanpham.OCung" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Card màn hình</b></td>
+                <td><input type="text" id="cardMH" name="cardMH" value="@sanpham.CardMH" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Đặc biệt</b> </td>
+                <td>  <input type="text" id="dacBiet" name="dacBiet" value="@sanpham.DacBiet" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Hệ điều hành</b></td>
+                <td>  <input type="text" id="hDH" name="hDH" value="@sanpham.HDH" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Thiết kế</b></td>
+                <td><input type="text" id="thietKe" name="thietKe" value="@sanpham.ThietKe" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Kích thước - Trọng lượng</b></td>
+                <td><input type="text" id="kichThuoc_TrongLuong" name="kichThuoc_TrongLuong" value="@sanpham.KichThuoc_TrongLuong" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Webcam</b> </td>
+                <td>  <input type="text" id="webcam" name="webcam" value="@sanpham.Webcam" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Pin</b></td>
+                <td>  <input type="text" id="pin" name="pin" value="@sanpham.Pin" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Ra mắt</b></td>
+                <td><input type="text" id="raMat" name="raMat" value="@sanpham.RaMat" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Mô tả</b></td>
+                <td><input type="text" id="moTa" name="moTa" value="@sanpham.MoTa" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Đơn giá</b> </td>
+                <td>  <input type="text" id="donGia" name="donGia" value="@sanpham.DonGia" style="width: 70%;"></td>
+            </tr>
+            <tr>
+                <td> <b>Hình ảnh</b></td>
+                <td>  <input type="text" id="hinhAnh" name="hinhAnh" value="@sanpham.HinhAnh" style="width: 70%;"></td>
+            </tr>
+        </table>
+        <br />
+        <div style="text-align: center"> <input type="submit" value="Cập nhật" /></div>
+    }
+
+
+    <div>
+        <a asp-action="Index">Trở về</a>
+    </div>
+
+</div>

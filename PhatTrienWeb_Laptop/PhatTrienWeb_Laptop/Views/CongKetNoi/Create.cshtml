@@ -1,0 +1,56 @@
+﻿@model DoAn_CuaHangLaptop.Models.CongKetNoi
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "/Views/Shared/_Layout2.cshtml";
+}
+
+
+<h1>Create</h1>
+
+@using (Html.BeginForm("Create", "CongKetNoi", new { style = "border:1px solid red; " }))
+{
+    <table class="table" , style="text-align:center;">
+        <tr>
+            <td> <b>Cổng giao tiếp</b></td>
+            <td> @Html.TextBoxFor(ckn => ckn.CongGiaoTiep, new { @class = "style" })</td>
+        </tr>
+        <tr>
+            <td> <b>Kết nối không dây</b> </td>
+            <td> @Html.TextBoxFor(ckn => ckn.KetNoiKhongDay, new { @class = "style" })</td>
+        </tr>
+        <tr>
+            <td> <b>Khe đọc thẻ nhớ</b></td>
+            <td>  @Html.TextBoxFor(ckn => ckn.KheDocTheNho, new { @class = "style" })</td>
+        </tr>
+        <tr>
+            <td> <b>Webcam</b></td>
+            <td>  @Html.TextBoxFor(ckn => ckn.WebCam, new { @class = "style" })</td>
+        </tr>
+        <tr>
+            <td> <b>Tính năng khác</b> </td>
+            <td> @Html.TextBoxFor(ckn => ckn.TinhNangKhac, new { @class = "style" })</td>
+        </tr>
+        <tr>
+            <td> <b>Đèn bàn phím</b></td>
+            <td>  @Html.TextBoxFor(ckn => ckn.DenBanPhim, new { @class = "style" })</td>
+        </tr>
+    </table>
+    <br />
+    <div style="text-align: center">  <input type="submit" value="Thêm cổng kết nối" /></div>
+}
+<div style="font-size: 12px;">
+    <a asp-action="Index">Trở về</a>
+</div>
+
+
+<style>
+    .style {
+        text-align: center;
+        width: 70%;
+    }
+
+    .b {
+        width: 300px;
+    }
+</style>

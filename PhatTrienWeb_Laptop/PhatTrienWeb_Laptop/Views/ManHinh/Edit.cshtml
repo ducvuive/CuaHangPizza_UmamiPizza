@@ -1,0 +1,49 @@
+﻿@model DoAn_CuaHangLaptop.Models.ManHinh
+
+@{
+    ViewData["Title"] = "Edit";
+    var manhinh = ViewData["ManHinh"] as ManHinh;
+    Layout = "/Views/Shared/_Layout2.cshtml";
+}
+
+<h1 style="text-align: center; color: coral;">Cập nhật thông tin</h1>
+<hr />
+
+@using (Html.BeginForm("Edit", "ManHinh", new { style = "border:1px solid red; " }))
+{
+    <table class="table" , style="text-align:center;">
+    <tr style="display: none;">
+        <td> <b>Mã màn hình</b></td>
+        <td><input type="text" id="maMH" name="maMH" value="@manhinh.MaMH" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Kích thước</b></td>
+        <td><input type="text" id="kichThuoc" name="kichThuoc" value="@manhinh.KichThuoc" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Độ phân giải</b></td>
+        <td><input type="text" id="doPhanGiai" name="doPhanGiai" value="@manhinh.DoPhanGiai" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Tần số quét</b></td>
+        <td><input type="text" id="tanSoQuet" name="tanSoQuet" value="@manhinh.TanSoQuet" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Công nghệ màn hình</b> </td>
+        <td>  <input type="text" id="congNgheMH" name="congNgheMH" value="@manhinh.CongNgheMH" style="width: 70%;"></td>
+    </tr>
+    <tr>
+        <td> <b>Cảm ứng</b></td>
+        <td>  <input type="text" id="camUng" name="camUng" value="@manhinh.CamUng" style="width: 70%;"></td>
+    </tr>
+</table>
+    <br />
+    <div style="text-align: center"> <input type="submit" value="Cập nhật" /></div>
+}
+
+
+<div>
+    <a asp-action="Index">Trở về</a>
+</div>
+
+
