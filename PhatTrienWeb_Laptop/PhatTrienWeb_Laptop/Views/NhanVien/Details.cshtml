@@ -1,0 +1,71 @@
+﻿@model PhatTrienWeb_Laptop.Models.NhanVien
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="mt-5">
+
+        <h4 align="center">Chi Tiết Nhân viên </h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TenDangNhap)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TenDangNhap)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TenNV)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TenNV)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NgaySinh)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NgaySinh)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GioiTinh)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GioiTinh)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ChucVu)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ChucVu)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DiaChi)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NgayVL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NgayVL)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SoDT)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SoDT)
+            </dd>
+        </dl>
+    </div>
+    <div class="mb-3">
+        @Html.ActionLink("Cập Nhật", "Edit", new { manv = Model.MaNV }, new { @class = "btn btn-primary" })
+        <br />
+        <a asp-action="Index">Trở về trang danh sách</a>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+﻿@model PhatTrienWeb_Laptop.Models.TaiKhoan
+@{
+    ViewData["Title"] = "Signin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        $('#reset').on('click', function () {
+
+            var tdn = $('#tdn').val();
+
+            if (!tdn) {
+                document.getElementById("tdnValidate").innerText = "Vui lòng nhập tên đăng nhập";
+
+            }
+            else {
+                $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Edit","TaiKhoan")',
+                data: { "tendangnhap": tdn },
+                    success: function (result) {
+                        if (!result) {
+                            document.getElementById("tdnValidate").innerText = "Vui lòng nhập đúng tên đăng nhập"
+                        } else {
+                            $('#register-none').css("display", "none")
+                            $('#edit').html(result);
+                            $('#edit').css("display", "block")
+                        }
+                    }
+                })
+            }
+        })
+
+        
+    </script>
+}
+
+
+<div class="hero-wrap hero-bread" style="background-image: url('~/wwwroot/images/bg_6.jpg');">
+    <div class="container">
+
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h3 class="mb-0 bread">Đăng Nhập</h3>
+            </div>
+        </div>
+
+        @*<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link rad-border-top-left-right-35px active" id="v-pills-signin-tab" data-toggle="pill" href="#v-pills-signin" role="tab" aria-controls="v-pills-signin" aria-selected="true">Đăng nhập</a>
+            <a class="nav-link rad-border-top-left-right-35px" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Đăng ký</a>
+        </div>*@
+
+    <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-signin" role="tabpanel" aria-labelledby="v-pills-signin-tab">
+            <div class="register-card" id="edit" style="display:none"></div>
+            <div class="register-card" id="register-none">
+                @if (ViewBag.error != null)
+                {
+                    <div style="max-width: 40em; margin: auto">
+                        <span class="badge badge-danger">@ViewBag.error</span>
+                    </div>
+                }
+                <form class="needs-validation" style="max-width: 40em; margin: auto" novalidate method="post" asp-action="Signin" asp-controller="TaiKhoan">
+
+                    <div class="form-group">
+                        <label>Tên đăng nhập</label>
+                        <input type="text" class="form-control rad-border-15px" asp-for="TenDangNhap" required id="tdn" placeholder="Nhập vào tên đăng nhập">
+                        @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
+                        <span id="tdnValidate"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật Khẩu</label>
+                        <input type="password" class="form-control rad-border-15px" asp-for="MatKhau" placeholder="Nhập mật khẩu" required>
+                        @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Ghi nhớ đăng nhập</label>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Đăng nhập" />
+                </form>
+                <div class="row py-1" style="max-width: 40em; margin: auto">
+                <div class="col-md-6 forgot px-0">
+                    <button id="reset" class="btn btn-simple btn-warning">Quên mật khẩu?</button>
+                </div>
+                <div class="col-md-6 d-flex justify-content-end" >
+                    <a href="@Url.Action("Create","KhachHang")" class="btn btn-simple btn-info">Đăng ký</a>
+                </div>
+
+                </div>
+            </div>
+        </div>  
+    </div>
+    </div>
+</div>
