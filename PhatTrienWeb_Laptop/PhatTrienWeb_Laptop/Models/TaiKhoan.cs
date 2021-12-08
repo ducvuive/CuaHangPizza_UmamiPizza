@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DoAn_CuaHangLaptop.Models
+namespace PhatTrienWeb_Laptop.Models
 {
     public class TaiKhoan
     {
@@ -20,7 +21,14 @@ namespace DoAn_CuaHangLaptop.Models
         {
         }
 
+        [Key]
+        [Required(ErrorMessage = "Trường này không được trống")]
+        [Display(Name = "Tên đăng nhập")]
+        [StringLength(10, ErrorMessage = "Tên đăng nhập phải dưới 10 ký tự")]
         public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
+        [Required(ErrorMessage = "Trường này không được trống")]
+        [Display(Name = "Mật khẩu")]
+        [StringLength(20, ErrorMessage = "Mật khẩu phải dưới 20 ký tự")]
         public string MatKhau { get => matKhau; set => matKhau = value; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using DoAn_CuaHangLaptop.Models;
+﻿
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -22,11 +22,11 @@ namespace PhatTrienWeb_Laptop.Controllers
 
         public IActionResult Index()
         {
-            //var usn = HttpContext.Session.GetString("usn");
-            /*if (usn != null)
+            var usn = HttpContext.Session.GetString("usn");
+            if (usn != null)
             {
                 TempData["tdn"] = usn;
-            }*/
+            }
             return View();
         }
 
