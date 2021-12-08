@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PhatTrienWeb_Laptop.Models.SuKien>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.MaSK)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.TenSK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhanTramGiamGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayBD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayKT)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.MaSK)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhanTramGiamGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayBD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayKT)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {mask = item.MaSK}) |
+                @Html.ActionLink("Details", "Details", item) |
+                @Html.ActionLink("Delete", "Delete", item)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
