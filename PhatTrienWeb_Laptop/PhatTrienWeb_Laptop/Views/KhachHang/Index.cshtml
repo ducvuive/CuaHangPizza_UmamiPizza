@@ -1,0 +1,78 @@
+﻿@model IEnumerable<PhatTrienWeb_Laptop.Models.KhachHang>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.MaKH)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.TenKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenDN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoDT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioiTinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+          @*  <th>
+                @Html.DisplayNameFor(model => model.MatKhau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XacNhanMatKhau)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          @*  <td>
+                @Html.DisplayFor(modelItem => item.MaKH)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>*@
+        @*    <td>
+                @Html.DisplayFor(modelItem => item.XacNhanMatKhau)
+            </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { makh = item.MaKH }) |
+                @Html.ActionLink("Details", "Details", item) |
+                @Html.ActionLink("Delete", "Delete", item)@*, new { onclick = "return confirm('Are you sure you wish to delete this customer?');" })*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
