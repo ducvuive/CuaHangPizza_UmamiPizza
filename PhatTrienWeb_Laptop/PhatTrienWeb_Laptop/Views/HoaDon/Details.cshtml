@@ -1,0 +1,67 @@
+﻿@model PhatTrienWeb_Laptop.Models.HoaDon
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="mt-5">
+
+        <h4 align="center">Chi Tiết Hóa Đơn </h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MaKH)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MaKH)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MaNV)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MaNV)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MaSK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MaSK)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NgayHD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NgayHD)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DiaChiGiaoHang)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DiaChiGiaoHang)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TongTien)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TongTien)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ThanhTien)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ThanhTien)
+            </dd>
+        </dl>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-md-6">
+            @Html.ActionLink("Cập Nhật", "Edit", new { mahd = Model.MaHD }, new { @class = "btn btn-primary" })
+            <br />
+            <a asp-action="Index">Trở về trang danh sách</a>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end">
+            <a href="@Url.Action("Create","CTHD",new { mahd = Model.MaHD})" class="btn btn-primary ">Thêm CTHD</a>
+        </div>
+    </div>
+</div>

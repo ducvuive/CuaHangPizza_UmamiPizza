@@ -50,7 +50,7 @@ namespace PhatTrienWeb_Laptop.Controllers
 
         //public IActionResult Index()
         //{
-        //    LapTopContext context = HttpContext.RequestServices.GetService(typeof(DoAn_CuaHangLaptop.Models.LapTopContext)) as LapTopContext;
+        //    LapTopContext context = HttpContext.RequestServices.GetService(typeof(PhatTrienWeb_Laptop.Models.LapTopContext)) as LapTopContext;
         //    ViewBag.dsTK = context.layDSTaiKhoan();
         //    return View();
         //}
@@ -59,7 +59,7 @@ namespace PhatTrienWeb_Laptop.Controllers
         // GET: TaiKhoanController/Details/5
         //public ActionResult Details(string tendangnhap)
         //{
-        //    LapTopContext context = HttpContext.RequestServices.GetService(typeof(DoAn_CuaHangLaptop.Models.LapTopContext)) as LapTopContext;
+        //    LapTopContext context = HttpContext.RequestServices.GetService(typeof(PhatTrienWeb_Laptop.Models.LapTopContext)) as LapTopContext;
         //    return View(context.layThongTinTK(tendangnhap));
         //}
 
@@ -76,7 +76,7 @@ namespace PhatTrienWeb_Laptop.Controllers
         //public IActionResult Create(TaiKhoan tk)
         //{
 
-        //    LapTopContext context = HttpContext.RequestServices.GetService(typeof(DoAn_CuaHangLaptop.Models.LapTopContext)) as LapTopContext;
+        //    LapTopContext context = HttpContext.RequestServices.GetService(typeof(PhatTrienWeb_Laptop.Models.LapTopContext)) as LapTopContext;
         //    if (!ModelState.IsValid)
         //    {
         //        return View(tk);
@@ -143,7 +143,7 @@ namespace PhatTrienWeb_Laptop.Controllers
         //{
         //    try
         //    {
-        //        LapTopContext context = HttpContext.RequestServices.GetService(typeof(DoAn_CuaHangLaptop.Models.LapTopContext)) as LapTopContext;
+        //        LapTopContext context = HttpContext.RequestServices.GetService(typeof(PhatTrienWeb_Laptop.Models.LapTopContext)) as LapTopContext;
         //        context.xoaTaiKhoan(tendangnhap);
         //        TempData["AlertMessage"] = "Xóa thành công";
         //        TempData["AlertType"] = "alert alert-success";
