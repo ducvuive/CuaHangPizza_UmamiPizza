@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.csproj.AssemblyReference.cache
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.GeneratedMSBuildEditorConfig.editorconfig
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.AssemblyInfoInputs.cache
@@ -6,6 +7,8 @@ E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.MvcApplicationPartsAssemblyInfo.cache
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.RazorAssemblyInfo.cache
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.RazorAssemblyInfo.cs
+=======
+>>>>>>> Stashed changes
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\bin\Debug\netcoreapp3.1\appsettings.json
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\bin\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.exe
@@ -16,12 +19,24 @@ E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\bin\Debug
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\bin\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.pdb
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\bin\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.Views.dll
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\bin\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.Views.pdb
+<<<<<<< Updated upstream
+=======
+E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.csproj.AssemblyReference.cache
+E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.GeneratedMSBuildEditorConfig.editorconfig
+E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.AssemblyInfoInputs.cache
+E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.AssemblyInfo.cs
+E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.csproj.CoreCompileInputs.cache
+E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.MvcApplicationPartsAssemblyInfo.cache
+E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.RazorAssemblyInfo.cache
+E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.RazorAssemblyInfo.cs
+>>>>>>> Stashed changes
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\staticwebassets\PhatTrienWeb_Laptop.StaticWebAssets.Manifest.cache
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\staticwebassets\PhatTrienWeb_Laptop.StaticWebAssets.xml
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\scopedcss\bundle\PhatTrienWeb_Laptop.styles.css
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.TagHelpers.input.cache
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.TagHelpers.output.cache
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.RazorCoreGenerate.cache
+<<<<<<< Updated upstream
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Home\Cart.cshtml.g.cs
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Home\Checkout.cshtml.g.cs
@@ -30,6 +45,10 @@ E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Home\Product.cshtml.g.cs
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Home\Shop.cshtml.g.cs
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Home\User.cshtml.g.cs
+=======
+E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+>>>>>>> Stashed changes
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -42,5 +61,8 @@ E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.pdb
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.genruntimeconfig.cache
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\PhatTrienWeb_Laptop.csproj.CopyComplete
+<<<<<<< Updated upstream
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout1.cshtml.g.cs
 E:\FileGit\PhatTrienUngDungWeb\PhatTrienWeb_Laptop\PhatTrienWeb_Laptop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout2.cshtml.g.cs
+=======
+>>>>>>> Stashed changes
