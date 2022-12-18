@@ -1,0 +1,53 @@
+﻿@model Test.Models.Sukien
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Sukien</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Mask" class="control-label"></label>
+                <input asp-for="Mask" class="form-control" />
+                <span asp-validation-for="Mask" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tensk" class="control-label"></label>
+                <input asp-for="Tensk" class="form-control" />
+                <span asp-validation-for="Tensk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phantramgiamgia" class="control-label"></label>
+                <input asp-for="Phantramgiamgia" class="form-control" />
+                <span asp-validation-for="Phantramgiamgia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ngaybd" class="control-label"></label>
+                <input asp-for="Ngaybd" class="form-control" />
+                <span asp-validation-for="Ngaybd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ngaykt" class="control-label"></label>
+                <input asp-for="Ngaykt" class="form-control" />
+                <span asp-validation-for="Ngaykt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

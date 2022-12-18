@@ -1,0 +1,339 @@
+﻿@model IEnumerable<Test.Models.Sanpham>
+@{ Layout = "_Layout"; }
+@section Scripts{
+    <script>
+    setTimeout(function () {
+        $('#msgA').fadeOut('slow');
+    }, 2000);
+    $('table .delete').on('click', function () {
+        var id = $(this).data("id");
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("timSanPham")',
+                data: { "id": id },
+                success: function (response) {
+                    console.log(response)
+                    $("#DeleteRecord #Masp").val(response.masp);
+                    $("#DeleteRecord #Tensp").val(response.tensp);
+                    $("#DeleteRecord #Soluong").val(response.soluong);
+                    $("#DeleteRecord #Mausac").val(response.mausac);
+                    $("#DeleteRecord #Ocung").val(response.ocung);
+                    $("#DeleteRecord #Cardmanhinh").val(response.cardmanhinh);
+                    $("#DeleteRecord #Dongia").val(response.dongia);
+                }
+            })
+    })
+    </script>
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách sản phẩm</h6>
+        </div>
+
+        <p></p>
+
+        <div class="container">
+
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <input type="hidden" class="form-control" id="Masp" name="Masp" value="1">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                            <input id="upload" name="HinhAnhFile" type="file" onchange="readURL(this);" class="form-control border-0">
+                            <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
+                            <div class="input-group-append">
+                                <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                            </div>
+                        </div>
+
+                        <div class="image-area mt-4">
+                            <img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="Danhmuc">Danh mục</label>
+                                <select name="Danhmuc" id="Danhmuc" class="form-control">
+                                    @foreach (Danhmucsanpham dm in (List<Danhmucsanpham>)ViewBag.Danhmuc)
+                                    {
+                        <option value="@dm.Madm">@dm.Madm</option>}
+                                </select>
+                                @*<select id="Danhmuc" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>*@
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="Ramat">Ra mắt</label>
+                                <input type="number" name="Ramat" class="form-control" id="Ramat" />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Soluong">Số lượng</label>
+                                <input type="number" class="form-control" id="Soluong" name="Soluong">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="Tensp">Tên sản phẩm</label>
+                                <input type="text" class="form-control" id="Tensp" name="Tensp">
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="Boxuly">CPU</label>
+                                @*<select id="inputCPU" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>*@
+                                <select name="Boxuly" id="Boxuly" class="form-control">
+                                    @foreach (Boxuly bxl in (List<Boxuly>)ViewBag.Boxuly)
+                                    {
+                        <option value="@bxl.Mabxl">@bxl.Mabxl</option>
+}
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="Ram">Mã loại ram</label>
+                                <select name="Ram" id="Ram" class="form-control">
+                                    @foreach (Bonhoram ram in (List<Bonhoram>)ViewBag.Ram)
+                                    {
+                        <option value="@ram.Maram">@ram.Maram</option>
+}
+                                </select>
+                                @*<select id="inputRam" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>*@
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="Manhinh">Mã loại màn hình</label>
+                                <select name="Manhinh" id="Manhinh" class="form-control">
+                                    @foreach (Manhinh mh in (List<Manhinh>)ViewBag.Manhinh)
+                                    {
+                        <option value="@mh.Mamh">@mh.Mamh</option>
+}
+                                </select>
+                                @*<select id="inputMonitor" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>*@
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="Congketnoi">Mã cổng kết nối</label>
+                                <select name="Congketnoi" id="Congketnoi" class="form-control">
+                                    @foreach (Congketnoi ckn in (List<Congketnoi>)ViewBag.Congketnoi)
+                                    {
+                        <option value="@ckn.Mackn">@ckn.Mackn</option>
+}
+                                </select>
+                                @*<select id="inputPort" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>*@
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="Ocung">Ổ cứng</label>
+                                <input type="text" class="form-control" id="Ocung" name="Ocung">
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="Cardmanhinh">Card màn hình</label>
+                                <input type="text" class="form-control" id="Cardmanhinh" name="Cardmanhinh">
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="Hdh">Hệ điều hành</label>
+                                <input type="text" class="form-control" id="Hdh" name="Hdh">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="Thietke">Thiết kế</label>
+                                <input type="text" class="form-control" id="Thietke" name="Thietke">
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="KichthuocTrongluong">Kích thước - trọng lượng</label>
+                                <input type="text" class="form-control" id="KichthuocTrongluong" name="KichthuocTrongluong">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="Pin">Pin</label>
+                                <input type="text" class="form-control" id="Pin" name="Pin">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-5">
+                                <label for="Mausac">Màu sắc</label>
+                                <input type="text" class="form-control" id="Mausac" name="Mausac">
+                            </div>
+
+                            <div class="form-group col-md-7">
+                                <label for="Dongia">Đơn giá</label>
+                                <input type="number" class="form-control" id="Dongia" name="Dongia">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="Webcam">Độ phân giải webcam</label>
+                                <textarea class="form-control" id="Webcam" name="Webcam" rows="2"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="Dacbiet">Tính năng đặc biệt</label>
+                                <textarea class="form-control" id="Dacbiet" name="Dacbiet" rows="2"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="Mota">Mô tả sản phẩm</label>
+                                <textarea class="form-control" id="Mota" name="Mota" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-10"></div>
+                            <div class="form-group col-md-2">
+                                <button type="submit" class="btn btn-primary">Thêm</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+
+
+        </div>
+
+        @if (TempData["AlertMessage"] != null)
+        {
+<div id="msgA" class="@TempData["AlertType"]" role="alert">
+    @TempData["AlertMessage"]
+</div>}
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="10%">Tên sản phẩm</th>
+                            <th width="10%">Số lượng</th>
+                            <th width="10%">Màu sắc</th>
+                            <th width="30%">Ổ cứng</th>
+                            <th width="10%">Card màn hình</th>
+                            <th width="10%">Đơn giá</th>
+                            <th width="20%">Tác vụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+            <tr>
+                <td>@item.Tensp</td>
+                <td>@item.Soluong</td>
+                <td>@item.Dongia?.ToString("#,##0 VNĐ")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Masp" class="btn btn-secondary">Cập nhật</a>
+                    <a asp-action="Details" asp-route-id="@item.Masp" class="btn btn-info">Chi tiết</a>
+                    <button type="button"
+                            class="btn btn-danger delete"
+                            data-toggle="modal"
+                            data-target="#DeleteRecord"
+                            data-id="@item.Masp">
+                        Xóa
+                    </button>
+                </td>
+            </tr>}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="DeleteRecord" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form asp-controller="SanPham" asp-action="Delete" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" readonly id=Masp class="form-control" name="Masp" />
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Tên sản phẩm</label>
+                                <div class="col-sm-8">
+                                    <input type="text" readonly id="Tensp" class="form-control" name="Tensp" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Số lượng</label>
+                                <div class="col-sm-8">
+                                    <input type="text" readonly id="Soluong" class="form-control" name="Soluong" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Màu sắc</label>
+                                <div class="col-sm-8">
+                                    <input type="text" readonly id="Mausac" class="form-control" name="Mausac" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Ổ cứng</label>
+                                <div class="col-sm-8">
+                                    <input type="text" readonly id="Ocung" class="form-control" name="Ocung" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Card màn hình</label>
+                                <div class="col-sm-8">
+                                    <input type="text" readonly id="Cardmanhinh" class="form-control" name="Cardmanhinh" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Đơn giá</label>
+                                <div class="col-sm-8">
+                                    <input type="text" readonly id="Dongia" class="form-control" name="Dongia" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+
+                        <button type="submit" class="btn btn-primary">Xóa</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

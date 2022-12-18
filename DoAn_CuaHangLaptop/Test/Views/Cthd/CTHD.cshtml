@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Test.Models.Cthd>
+
+@{
+    ViewData["Title"] = "CTHD";
+    Layout = "~/Areas/Identity/Pages/Account/Manage/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Hình ảnh
+            </th>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Gía
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            var thanhtien = item.Soluong * @item.MaspNavigation.Dongia;
+                <tr>
+                    <td style="width: 300px; height: 171px">
+                        <img class="img-fluid" src="@item.MaspNavigation.Hinhanh"></img>
+                    </td>
+                    <td>
+                        @item.MaspNavigation.Tensp
+                    </td>
+                    <td>
+                        @item.MaspNavigation.Dongia?.ToString("#,### VNĐ")
+                    </td>
+                    <td>
+                        @item.Soluong
+                    </td>
+                    <td>
+                        @thanhtien?.ToString("#,### VNĐ")
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

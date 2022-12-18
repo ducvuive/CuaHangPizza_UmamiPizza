@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Test.Models.Cthd>
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Chi tiết hóa đơn</h6>
+        </div>
+
+        <p></p>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Mã hóa đơn</th>
+                            <th>Tên người nhận</th>
+                            <th>Ngày hóa đơn</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Mahd</td>
+                                <td>@item.MahdNavigation.Nguoinhan</td>
+                                <td>@item.MahdNavigation.Ngayhd?.ToString("dd/MM/yyyy")</td>
+                                <td>@item.MaspNavigation.Tensp</td>
+                                <td>@item.Soluong</td>
+                                <td>@item.MaspNavigation.Dongia?.ToString("#,##0 VND")</td>
+                            </tr>
+
+                        }
+                        <tr></tr>
+                    </tbody>
+                </table>
+                          <div style="display:flex; justify-content:end" >Tổng cộng: @TempData["TongCong"]</div>
+            </div>
+        </div>
+    </div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>
+
+
+<style>
+    table.table-bordered.dataTable tbody td {
+        border-bottom-width: thin;
+        border-left-width: thin;
+    }
+    table.table-bordered.dataTable th {
+        border-left-width: thin;
+    }
+</style>
+

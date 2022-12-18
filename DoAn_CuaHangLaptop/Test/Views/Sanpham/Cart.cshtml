@@ -1,0 +1,130 @@
+﻿@model List<Test.Models.GioHang>
+@{
+    ViewData["Title"] = "Cart";
+}
+@if (Model.Count > 0)
+{
+    decimal total = 0;
+    int stt = 1;
+
+    <div class="hero-wrap hero-bread" style="background-image: url(/images/bg_6.jpg);">
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Cart</span></p>
+                    <h1 class="mb-0 bread">My Wishlist</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section ftco-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    <div class="cart-list">
+                      
+                            <table class="table">
+                                <thead class="thead-primary">
+                                    <tr class="text-center">
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;&nbsp;</th>
+                                        <th>Sản phẩm</th>
+                                        <th>Gía</th>
+                                        <th>Số lượng</th>
+                                        <th>Tổng tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        
+                                        decimal thanhtien = item.SL * (decimal)item.Sanpham.Dongia;
+                                        total += thanhtien;
+                                    <tr class="text-center">
+                                        <td class="product-remove"><a asp-action="RemoveCart" asp-route-id="@item.Sanpham.Masp"><span class="ion-ios-close"></span></a></td>
+
+                                        <td class="image-prod"><div class="img" style="background-image:url(@item.Sanpham.Hinhanh);"></div></td>
+
+                                        <td class="product-name">
+                                            <h3>@item.Sanpham.Tensp</h3>
+
+                                        </td>
+
+                                        <td class="price">@item.Sanpham.Dongia?.ToString("#,##0 VNĐ")</td>
+                                        <form asp-action="UpdateCart" method="post">
+                                        <td class="quantity">
+                                            <div class="w-100"></div>
+                                            <div class="input-group mb-3">
+                                             
+                                                <div style="display:none">
+                                                    <input type="text" id="id" name="id" value="@item.Sanpham.Masp" />
+                                                </div>
+
+                                                <input type="text" id="quantity" name="quantity" class="quantity form-control input-number" value="@item.SL" min="1" max="100">
+                                                <span class="input-group-btn ml-2">
+                                                    <button class="btn btn-primary py-3 px-4" type="submit" data-type="plus" data-field="">
+                                                        cập nhật
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <div class="w-100"></div>
+
+                                        </td>
+                                        </form>
+
+                                        <td class="total">@thanhtien.ToString("#,##0 VNĐ")</td>
+                                    </tr>
+                                    }
+
+                                    <!-- END TR-->
+                                </tbody>
+                            </table>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-start">
+                <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+                    <div class="cart-total mb-3">
+                        <h3>Tổng tiền</h3>
+                        <p class="d-flex">
+                            <span>Thành tiền</span>
+                            <span>@total.ToString("#,##0 VNĐ")</span>
+                        </p>
+                        <p class="d-flex">
+                            <span>Vận chuyển</span>
+                            <span>0</span>
+                        </p>
+                        <p class="d-flex">
+                            <span>Giảm giá</span>
+                            <span>0</span>
+                        </p>
+                        <hr>
+                        <p class="d-flex total-price">
+                            <span>Tổng tiền</span>
+                            <span>@total.ToString("#,##0 VNĐ")</span>
+                        </p>
+                    </div>
+                    <p class="text-center"><a asp-controller="SanPham" asp-action="Checkout" class="btn btn-primary py-3 px-4">Mua hàng</a></p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+<script>
+    
+    function giam() {
+        var i = document.getElementById('quantity').value;
+        i=i-1;
+        document.getElementById('quantity').value = i;
+    }
+
+    function tang() {
+        var i = document.getElementById('quantity').value;
+        i=i+1;
+        document.getElementById('quantity').value = i;
+    }
+</script>
+

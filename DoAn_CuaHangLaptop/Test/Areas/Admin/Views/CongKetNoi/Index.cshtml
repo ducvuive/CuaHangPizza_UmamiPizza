@@ -1,0 +1,195 @@
+﻿@model IEnumerable<Test.Models.Congketnoi>
+@{
+    Layout = "_Layout";
+}
+@section Scripts{
+    <script>
+    setTimeout(function () {
+        $('#msgA').fadeOut('slow');
+    }, 2000);
+    $('table .delete').on('click', function () {
+        var id = $(this).data("id");
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("timCongKetNoi")',
+                data: { "id": id },
+                success: function (response) {
+                    console.log(response)
+                    $("#DeleteRecord #Mackn").val(response.mackn);
+                    $("#DeleteRecord #Conggiaotiep").val(response.conggiaotiep);
+                    $("#DeleteRecord #Ketnoikhongday").val(response.ketnoikhongday);
+                    $("#DeleteRecord #Webcam").val(response.webcam);
+                }
+            })
+    })
+    </script>
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Cổng kết nối</h6>
+        </div>
+
+        <p></p>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-action="Create" method="post">
+                        <input type="hidden" class="form-control" id="Mackn" name="Mackn" value="1">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="Conggiaotiep">Cổng giao tiếp</label>
+                                <textarea class="form-control" id="Conggiaotiep" name="Conggiaotiep" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="Ketnoikhongday">Kết nối không dây</label>
+                                <textarea class="form-control" id="Ketnoikhongday" name="Ketnoikhongday" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="Khedocthenho">Khe đọc thẻ nhớ</label>
+                                <textarea class="form-control" id="Khedocthenho" name="Khedocthenho" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Denbanphim" id="Denbanphim" value="có" checked>
+                                <label class="form-check-label" for="Denbanphim">
+                                    Có đèn bàn phím
+                                </label>
+                            </div>
+                            <div class="form-group col-md-1">
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Denbanphim" id="Denbanphim" value="không">
+                                <label class="form-check-label" for="Denbanphim">
+                                    Không có đèn bàn phím
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="Tinhnangkhac">Webcam</label>
+                                <textarea class="form-control" id="Webcam" name="Webcam" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="Tinhnangkhac">Tính năng khác</label>
+                                <textarea class="form-control" id="Tinhnangkhac" name="Tinhnangkhac" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-10"></div>
+                            <div class="form-group col-md-2 center">
+                                <button type="submit" class="btn btn-primary">Thêm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @if (TempData["AlertMessage"] != null)
+        {
+            <div id="msgA" class="@TempData["AlertType"]" role="alert">
+                @TempData["AlertMessage"]
+            </div>
+        }
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="25%">Cổng giao tiếp</th>
+                            <th width="20%">Kết nối không dây</th>
+                            <th width="10%">Đầu đọc thẻ nhớ</th>
+                            <th width="10%">Webcam </th>
+                            <th width="10%">Tính năng khác</th>
+                            <th width="10%">Đèn bàn phím</th>
+                            <th width="15%">Tác vụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.Conggiaotiep</td>
+                            <td>@item.Ketnoikhongday</td>
+                            <td>@item.Khedocthenho</td>
+                            <td>@item.Webcam</td>
+                            <td>@item.Tinhnangkhac</td>
+                            <td>@item.Denbanphim</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Mackn" class="btn btn-secondary">Cập nhật</a>
+                                <button type="button"
+                                        class="btn btn-danger delete"
+                                        data-toggle="modal"
+                                        data-target="#DeleteRecord"
+                                        data-id="@item.Mackn">
+                                    Xóa
+                                </button>
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="DeleteRecord" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-controller="CongKetNoi" asp-action="Delete" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" readonly id=Mackn class="form-control" name="Mackn" />
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Cổng giao tiếp</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="Conggiaotiep" class="form-control" name="Conggiaotiep" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Kết nối không dây</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="Ketnoikhongday" class="form-control" name="Ketnoikhongday" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Webcam</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="Webcam" class="form-control" name="Webcam" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+
+                    <button type="submit" class="btn btn-primary">Xóa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

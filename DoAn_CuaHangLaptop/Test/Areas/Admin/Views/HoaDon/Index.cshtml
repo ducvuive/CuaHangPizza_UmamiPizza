@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Test.Models.Hoadon>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Hóa đơn</h6>
+            <div class="d-flex justify-content-end">
+                <a asp-action="Index" asp-controller="HoaDon" asp-area="admin" asp-route-trangthai="1" class="btn btn-primary mr-1">
+                    Đơn hàng chưa xác nhận
+                </a>
+                <a asp-action="Index" asp-controller="HoaDon" asp-area="admin" asp-route-trangthai="2" class="btn btn-secondary mr-1">
+                    Đơn hàng đã xác nhận
+                </a>
+                <a asp-action="Index" asp-controller="HoaDon" asp-area="admin" asp-route-trangthai="3" class="btn btn-info mr-1">
+                    Đơn hàng đang giao
+                </a>
+                <a asp-action="Index" asp-controller="HoaDon" asp-area="admin" asp-route-trangthai="4" class="btn btn-success">
+                    Đơn hàng đã giao
+                </a>
+            </div>
+        </div>
+
+        <p></p>
+        
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                Ngày hóa đơn
+                            </th>
+                            <th>
+                               Người nhận
+                            </th>
+                            <th>
+                                Số điện thoại
+                            </th>
+                            <th>
+                                Địa chỉ giao hàng
+                            </th>
+                            <th>
+                                Tổng tiền
+                            </th>
+                            <th>
+                                Trạng thái
+                            </th>
+                            <th>
+                                Tác vụ
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @item.Ngayhd?.ToString("dd/MM/yyyy")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nguoinhan)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sdt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Diachigiaohang)
+                            </td>
+                            <td>
+                                @item.Tongtien?.ToString("#,##0 VND")
+                            </td>
+
+                            @if (@item.Trangthai == 0)
+                            {
+                                <td>Chưa xác nhận</td>
+                            }
+                            else if (@item.Trangthai == 1)
+                            {
+                                <td>Đã xác nhận</td>
+                            }
+                            else if (@item.Trangthai == 2)
+                            {
+                                <td>Đang giao hàng</td>
+                            }
+                            else
+                            {
+                                <td>Đã giao hàng</td>
+
+                            }
+
+                            <td>
+                                <a asp-controller="HoaDon" asp-action="Details" asp-route-id="@item.Mahd" class="btn btn-info">Chi tiết</a>
+                                @if (item.Trangthai != 3)
+                                {
+                                    <a asp-controller="HoaDon" asp-action="changeStatus" asp-route-mahd="@item.Mahd" class="btn btn-warning">Xác nhận đơn hàng</a>
+                                }
+
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,197 @@
+﻿@model IEnumerable<Test.Models.Bonhoram>
+@{
+    Layout = "_Layout";
+}
+@section Scripts{
+    <script>
+    setTimeout(function () {
+        $('#msgA').fadeOut('slow');
+    }, 2000);
+    $('table .delete').on('click', function () {
+        var id = $(this).data("id");
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("timBoNhoRam")',
+                data: { "id": id },
+                success: function (response) {
+                    console.log(response)
+                    $("#DeleteRecord #maram").val(response.maram);
+                    $("#DeleteRecord #dungluongram").val(response.dungluongram);
+                    $("#DeleteRecord #loairam").val(response.loairam);
+                    $("#DeleteRecord #busram").val(response.busram);
+                    $("#DeleteRecord #hotrotoida").val(response.hotrotoida);
+                }
+            })
+    })
+    </script>
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Bộ nhớ Ram</h6>
+        </div>
+
+        <p></p>
+
+        <div class="container">
+
+            <div class="row">
+
+
+
+                <div class="col-md-12">
+                    <form asp-action="Create" method="post">
+                        <input type="hidden" class="form-control" id="Maram" name="Maram" value="1">
+                        <div class="form-row">
+
+
+                            <div class="form-group col-md-3">
+                                <label>Dung lượng</label>
+                                <input type="text" class="form-control" id="Dungluongram" name="Dungluongram">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Loại ram</label>
+                                <input type="text" class="form-control" id="Loairam" name="Loairam">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Bus ram</label>
+                                <input type="text" class="form-control" id="Busram" name="Busram">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Hỗ trợ tối đa</label>
+                                <input type="text" class="form-control" id="Hotrotoida" name="Hotrotoida">
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6"></div>
+                            <div class="form-group col-md-2 center">
+                                <button type="submit" class="btn btn-primary">Thêm</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        @if (TempData["AlertMessage"] != null)
+        {
+            <div id="msgA" class="@TempData["AlertType"]" role="alert">
+                @TempData["AlertMessage"]
+            </div>
+        }
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="10%">Dung lượng</th>
+                            <th width="30%">Loại RAM</th>
+                            <th width="20%">Bus RAM</th>
+                            <th width="20%">Hỗ trợ tối đa</th>
+                            <th width="20%">Tác vụ</th>
+                        </tr>
+                    </thead>
+                    @*<tfoot>
+                            <tr>
+                                <th width="15%">Mã RAM</th>
+                                <th width="10%">Dung lượng</th>
+                                <th width="10%">Loại RAM</th>
+                                <th width="10%">Bus RAM</th>
+                                <th width="10%">Hỗ trợ tối đa</th>
+
+                            </tr>
+                        </tfoot>*@
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Dungluongram</td>
+                                <td>@item.Loairam</td>
+                                <td>@item.Busram</td>
+                                <td>@item.Hotrotoida</td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Maram" class="btn btn-secondary">Cập nhật</a>
+                                    <button type="button"
+                                            class="btn btn-danger delete"
+                                            data-toggle="modal"
+                                            data-target="#DeleteRecord"
+                                            data-id="@item.Maram">
+                                        Xóa
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="DeleteRecord" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-controller="BoNhoRam" asp-action="Delete" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" readonly id=maram class="form-control" name="Maram" />
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Dung lượng ram</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="dungluongram" class="form-control" name="dungluongram" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Loại Ram</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="loairam" class="form-control" name="loairam" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Bus Ram</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="busram" class="form-control" name="busram" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Hỗ trợ tối đa</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="hotrotoida" class="form-control" name="hotrotoida" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+
+                    <button type="submit" class="btn btn-primary">Xóa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

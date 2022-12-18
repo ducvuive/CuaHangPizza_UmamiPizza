@@ -1,0 +1,32 @@
+﻿@model Test.Models.Danhmucsanpham
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Chỉnh sửa</h1>
+
+<h4>Danh mục sản phẩm</h4>
+<hr />
+<div class="row" style="display:flex;justify-content:center">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Madm" />
+            <div class="form-group">
+                <label asp-for="Tendm" class="control-label"></label>
+                <input asp-for="Tendm" class="form-control" />
+                <span asp-validation-for="Tendm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="mt-3">Trở về trang danh sách</a>
+</div>
+

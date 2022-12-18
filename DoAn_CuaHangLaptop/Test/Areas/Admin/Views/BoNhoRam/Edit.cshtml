@@ -1,0 +1,47 @@
+﻿@model Test.Models.Bonhoram
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Chỉnh sửa</h1>
+
+<h4>Bộ nhớ Ram</h4>
+<hr />
+<div class="row" style="display:flex;justify-content:center">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Maram" />
+            <div class="form-group">
+                <label asp-for="Dungluongram" class="control-label"></label>
+                <input asp-for="Dungluongram" class="form-control" />
+                <span asp-validation-for="Dungluongram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loairam" class="control-label"></label>
+                <input asp-for="Loairam" class="form-control" />
+                <span asp-validation-for="Loairam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Busram" class="control-label"></label>
+                <input asp-for="Busram" class="form-control" />
+                <span asp-validation-for="Busram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hotrotoida" class="control-label"></label>
+                <input asp-for="Hotrotoida" class="form-control" />
+                <span asp-validation-for="Hotrotoida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="mt-3">Trở về trang danh sách</a>
+</div>
+

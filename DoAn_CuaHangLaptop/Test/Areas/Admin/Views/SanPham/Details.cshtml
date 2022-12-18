@@ -1,0 +1,59 @@
+﻿@model Test.Models.Sanpham
+
+@{ ViewData["Title"] = "Details";
+                Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+                var sanpham = ViewData["SanPham"] as Sanpham;
+                var bxl = ViewData["BXL"] as Boxuly;
+                var ram = ViewData["RAM"] as Bonhoram;
+                var mh = ViewData["MH"] as Manhinh;
+                var ckn = ViewData["CKN"] as Congketnoi; }
+
+<h1>Chi tiết</h1>
+
+<div>
+    <h4>Sản phẩm</h4>
+    <hr />
+
+
+
+    <div class="p-4">
+        <div class="container">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th colspan="2">Thông tin sản phẩm</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th scope="row">Tên sản phẩm</th>
+                        <td>@sanpham.Tensp</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Đơn giá</th>
+                        <td>@sanpham.Dongia?.ToString("#,##0 VNĐ")</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Số lượng</th>
+                        <td>@sanpham.Soluong</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+            
+
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model.Masp" class="btn btn-success">Cập nhật</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a asp-action="Index">Trở về trang danh sách</a>
+<style>
+    .table tbody th {
+        width: 350px
+    }
+</style>

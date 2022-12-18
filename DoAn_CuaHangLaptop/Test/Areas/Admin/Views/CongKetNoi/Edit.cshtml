@@ -1,0 +1,73 @@
+﻿@model Test.Models.Congketnoi
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cập nhật</h1>
+
+<h4>Cổng kết nối</h4>
+<hr />
+<div class="row" style="display:flex;justify-content:center">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Mackn" />
+            <div class="form-group">
+                <label asp-for="Conggiaotiep" class="control-label"></label>
+                <input asp-for="Conggiaotiep" class="form-control" />
+                <span asp-validation-for="Conggiaotiep" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ketnoikhongday" class="control-label"></label>
+                <input asp-for="Ketnoikhongday" class="form-control" />
+                <span asp-validation-for="Ketnoikhongday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Khedocthenho" class="control-label"></label>
+                <input asp-for="Khedocthenho" class="form-control" />
+                <span asp-validation-for="Khedocthenho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Webcam" class="control-label"></label>
+                <input asp-for="Webcam" class="form-control" />
+                <span asp-validation-for="Webcam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tinhnangkhac" class="control-label"></label>
+                <input asp-for="Tinhnangkhac" class="form-control" />
+                <span asp-validation-for="Tinhnangkhac" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Denbanphim" id="Denbanphim" value="có" checked>
+                    <label class="form-check-label" for="Denbanphim">
+                        Có đèn bàn phím
+                    </label>
+                </div>
+                <div class="form-group col-md-1">
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Denbanphim" id="Denbanphim" value="không">
+                    <label class="form-check-label" for="Denbanphim">
+                        Không có đèn bàn phím
+                    </label>
+                </div>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Denbanphim" class="control-label"></label>
+                <input asp-for="Denbanphim" class="form-control" />
+                <span asp-validation-for="Denbanphim" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="mt-3">Trở về trang danh sách</a>
+</div>
+

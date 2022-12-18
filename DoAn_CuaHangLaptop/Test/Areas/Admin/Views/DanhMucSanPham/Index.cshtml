@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Test.Models.Danhmucsanpham>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    <script>
+    setTimeout(function () {
+        $('#msgA').fadeOut('slow');
+    }, 2000);
+    $('table .delete').on('click', function () {
+        var id = $(this).data("id");
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("timDanhMuc")',
+                data: { "id": id },
+                success: function (response) {
+                    console.log(response)
+                    $("#DeleteRecord #madm").val(response.madm);
+                    $("#DeleteRecord #tendanhmuc").val(response.tendm);
+                }
+            })
+    })
+    </script>
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh mục sản phẩm</h6>
+        </div>
+
+        <p></p>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <form asp-action="Create" method="post">
+                        <input type="hidden" class="form-control" id="Madm" name="Madm" value="1">
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label for="inputBrand">Tên danh mục</label>
+                                <input type="text" class="form-control" id="Tendm" name="Tendm">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-1 center">
+                                <button type="submit" class="btn btn-primary">Thêm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        @if (TempData["AlertMessage"] != null)
+        {
+            <div id="msgA" class="@TempData["AlertType"]" role="alert">
+                @TempData["AlertMessage"]
+            </div>
+        }
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="20%">Mã danh mục</th>
+                            <th width="50%">Tên danh mục</th>
+                            <th width="30%">Tác vụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Madm</td>
+                                <td>@item.Tendm</td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Madm" class="btn btn-secondary">Cập nhật</a>
+                                    <button type="button"
+                                            class="btn btn-danger delete"
+                                            data-toggle="modal"
+                                            data-target="#DeleteRecord"
+                                            data-id="@item.Madm">
+                                        Xóa
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="DeleteRecord" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-controller="DanhMucSanPham" asp-action="Delete" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" readonly id=madm class="form-control" name="Madm" />
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Tên danh mục</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id=tendanhmuc class="form-control" name="Tendm" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+
+                    <button type="submit" class="btn btn-primary">Xóa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

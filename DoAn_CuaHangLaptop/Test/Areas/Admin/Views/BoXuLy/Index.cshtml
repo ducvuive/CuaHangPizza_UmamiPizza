@@ -1,0 +1,183 @@
+﻿@model IEnumerable<Test.Models.Boxuly>
+@{
+    Layout = "_Layout";
+}
+@section Scripts{
+    <script>
+    setTimeout(function () {
+        $('#msgA').fadeOut('slow');
+    }, 2000);
+    $('table .delete').on('click', function () {
+        var id = $(this).data("id");
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("timBoXuLy")',
+                data: { "id": id },
+                success: function (response) {
+                    console.log(response)
+                    $("#DeleteRecord #mabxl").val(response.mabxl);
+                    $("#DeleteRecord #Congnghecpu").val(response.congnghecpu);
+                    $("#DeleteRecord #Sonhan").val(response.sonhan);
+                    $("#DeleteRecord #Soluong").val(response.soluong);
+                    $("#DeleteRecord #Tocdocpu").val(response.tocdocpu);
+                }
+            })
+    })
+    </script>
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Bộ xử lý</h6>
+        </div>
+
+        <p></p>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-action="Create" method="post">
+                        <input type="hidden" class="form-control" id="Mabxl" name="Mabxl" value="1">
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label>Số nhân</label>
+                                <input type="number" class="form-control" id="Sonhan" name="Sonhan">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="Soluong">Số luồng</label>
+                                <input type="number" class="form-control" id="Soluong" name="Soluong">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="Tocdocpu">Tốc độ CPU</label>
+                                <input type="text" class="form-control" id="Tocdocpu" name="Tocdocpu">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="Tocdotoida">Tốc độ tối đa</label>
+                                <input type="text" class="form-control" id="Tocdotoida" name="Tocdotoida">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="Bonhodem">Bộ nhớ đệm</label>
+                                <input type="text" class="form-control" id="Bonhodem" name="Bonhodem">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="Congnghecpu">Công nghệ CPU</label>
+                                <textarea class="form-control" id="Congnghecpu" name="Congnghecpu" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-10"></div>
+                            <div class="form-group col-md-2">
+                                <button type="submit" class="btn btn-primary">Thêm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @if (TempData["AlertMessage"] != null)
+        {
+            <div id="msgA" class="@TempData["AlertType"]" role="alert">
+                @TempData["AlertMessage"]
+            </div>
+        }
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="15%">Công nghệ CPU</th>
+                            <th width="7%">Số nhân</th>
+                            <th width="7%">Số luồng</th>
+                            <th width="10%">Tốc độ CPU</th>
+                            <th width="16%">Tốc độ tối đa</th>
+                            <th width="10%">Bộ nhớ đệm</th>
+                            <th width="20%">Tác vụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.Congnghecpu</td>
+                            <td>@item.Sonhan</td>
+                            <td>@item.Soluong</td>
+                            <td>@item.Tocdocpu</td>
+                            <td>@item.Tocdotoida</td>
+                            <td>@item.Bonhodem</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Mabxl" class="btn btn-secondary">Cập nhật</a>
+                                <button type="button"
+                                        class="btn btn-danger delete"
+                                        data-toggle="modal"
+                                        data-target="#DeleteRecord"
+                                        data-id="@item.Mabxl">
+                                    Xóa
+                                </button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="DeleteRecord" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-controller="BoXuLy" asp-action="Delete" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" readonly id=mabxl class="form-control" name="Mabxl" />
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Công nghệ CPU</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="Congnghecpu" class="form-control" name="Congnghecpu" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Số nhân</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="Sonhan" class="form-control" name="Sonhan" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Số luồng</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="Soluong" class="form-control" name="Soluong" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Tốc độ CPU</label>
+                            <div class="col-sm-8">
+                                <input type="text" readonly id="Tocdocpu" class="form-control" name="Tocdocpu" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+
+                    <button type="submit" class="btn btn-primary">Xóa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

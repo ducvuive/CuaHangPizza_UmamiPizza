@@ -1,0 +1,58 @@
+﻿@model Test.Models.Sanpham
+
+@{ ViewData["Title"] = "Edit";
+                Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
+
+<h1>Cập nhật</h1>
+
+<h4>Sản phẩm</h4>
+<hr />
+<div class="container">
+    <form asp-action="Edit" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Masp" />
+        <div class="form-group">
+            <label asp-for="Danhmuc" class="control-label"></label>
+            <select asp-for="Danhmuc" class="form-control" asp-items="ViewBag.Danhmuc"></select>
+            <span asp-validation-for="Danhmuc" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Tensp" class="control-label"></label>
+            <textarea asp-for="Tensp" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Tensp" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Soluong" class="control-label"></label>
+            <input asp-for="Soluong" class="form-control" />
+            <span asp-validation-for="Soluong" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Mota" class="control-label"></label>
+            <textarea asp-for="Mota" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Mota" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dongia" class="control-label"></label>
+            <input asp-for="Dongia" class="form-control" />
+            <span asp-validation-for="Dongia" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Hinhanh" class="control-label"></label>
+            <img src="@Model.Hinhanh" width="150px" height="100px" />
+
+        </div>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="HinhAnhFile" name="HinhAnhFile">
+            <label class="custom-file-label" for="HinhAnhFile">Chọn hình ảnh</label>
+        </div>
+        <div class="form-group mt-3">
+            <input type="submit" value="Lưu" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+<div>
+    <a asp-action="Index" class="mt-3">
+        Trở về trang danh sách
+    </a>
+</div>
+

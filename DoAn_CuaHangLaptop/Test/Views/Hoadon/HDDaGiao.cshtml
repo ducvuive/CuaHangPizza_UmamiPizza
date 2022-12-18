@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Test.Models.Hoadon>
+
+@{
+    ViewData["Title"] = "HDDaGiao";
+    Layout = "~/Areas/Identity/Pages/Account/Manage/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Ngày hóa đơn</label>
+            </th>
+            <th>
+                Người nhận
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Địa chỉ giao hàng
+            </th>
+            <th>
+                Thành tiền
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Ngayhd?.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nguoinhan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sdt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diachigiaohang)
+            </td>
+            <td>
+                @item.Thanhtien?.ToString("#,### VND")
+            </td>
+            <td>
+                <a asp-controller="Cthd" asp-action="CTHD" asp-route-mahd="@item.Mahd" >Chi tiết</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
